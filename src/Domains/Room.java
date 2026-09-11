@@ -4,22 +4,23 @@ import Enums.RoomStatus;
 import Enums.RoomType;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public class Room{
-    protected int idR = 0 ;
+    protected UUID idR  ;
     protected String roomNumber ;
     protected int capacity ;
     protected BigDecimal pricePerNight;
     protected RoomType Type ;
     protected RoomStatus Status ;
 
-    Room(String roomNumber , int capacity , BigDecimal pricePerNight , RoomType Type , RoomStatus Status){
-        roomNumber = roomNumber ;
-        capacity = capacity ;
-        pricePerNight = pricePerNight ;
-        Type = Type ;
-        Status = Status ;
-        idR++ ;
+    public Room(String roomNumber, int capacity, BigDecimal pricePerNight, RoomType Type, RoomStatus Status){
+        this.idR=UUID.randomUUID();
+        this.roomNumber = roomNumber;
+        this.capacity = capacity;
+        this.pricePerNight = pricePerNight;
+        this.Type = Type;
+        this.Status = Status;
     }
 
     public BigDecimal getPricePerNight() {
@@ -30,7 +31,7 @@ public class Room{
         return capacity;
     }
 
-    public int getIdR() {
+    public UUID getIdR() {
         return idR;
     }
 
@@ -50,7 +51,7 @@ public class Room{
         this.capacity = capacity;
     }
 
-    public void setIdR(int idR) {
+    public void setIdR(UUID idR) {
         this.idR = idR;
     }
 

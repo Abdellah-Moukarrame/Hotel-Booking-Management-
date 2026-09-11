@@ -1,5 +1,9 @@
 package Enums;
 
-public class RoomType {
+public   enum RoomType {
+    SINGLE ,
+    DOUBLE ,
+    SUITE
+
 
 }

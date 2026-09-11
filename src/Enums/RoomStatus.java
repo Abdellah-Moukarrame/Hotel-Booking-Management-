@@ -1,5 +1,6 @@
 package Enums;
 
-public class RoomStatus{
-
+public enum RoomStatus{
+    AVAILABLE ,
+    MAINTENANCE
 }

@@ -7,32 +7,32 @@ public class User{
     protected String password ;
     protected String phone ;
 
-    User(String name , String email , String password , String phone){
-        idU++;
-        name = name ;
-        email = email ;
-        password = password ;
-        phone = phone ;
+    public User(String name, String email, String phone, String password) {
+        this.idU = idU++;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public int getIdU() {
-        return idU;
+        return this.idU;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setEmail(String email) {
