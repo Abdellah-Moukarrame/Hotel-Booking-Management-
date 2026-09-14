@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ReservationRepository {
-    UUID save(Reservation reservation);
+    void save(Reservation reservation);
     Optional<Reservation> findById(int id);
     Optional<Reservation> findByCode(String code);
     List<Reservation> findByUserId(int userId);

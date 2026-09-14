@@ -6,8 +6,8 @@ import Repository.ReservationRepository;
 import java.util.*;
 
 public class ReservationRepositoryImpl implements ReservationRepository {
-    private final Map<UUID,Reservation> reservations = new HashMap<>();
 
+    private final Map<UUID, Reservation> reservations = new HashMap<>();
 
     @Override
     public void save(Reservation reservation) {
@@ -16,26 +16,28 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public Optional<Reservation> findById(int id) {
-        return Optional.empty();
+        return reservations.values().stream().filter(reservation -> reservation.getIdRes().equals(id)).findFirst();
     }
 
     @Override
     public Optional<Reservation> findByCode(String code) {
-        return Optional.empty();
+        return reservations.values().stream().filter(reservation -> reservation.getCode().equals(code)).findFirst();
     }
 
     @Override
     public List<Reservation> findByUserId(int userId) {
-        return List.of();
+        return reservations.values().stream().filter(reservation -> reservation.getIdUser().equals(userId)).toList();
     }
 
     @Override
     public List<Reservation> findByRoomNumber(String roomNumber) {
-        return List.of();
+        return reservations.values().stream().filter(reservation -> reservation.getRoomNumber().equals(roomNumber)).toList();
     }
+
+
 
     @Override
     public List<Reservation> findAll() {
-        return List.of();
+        return new ArrayList<>(reservations.values());
     }
 }
