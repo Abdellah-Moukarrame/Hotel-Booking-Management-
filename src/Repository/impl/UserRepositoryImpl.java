@@ -8,10 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 public class UserRepositoryImpl implements UserRepository {
 
-    private final Map<Integer, User> users = new HashMap<>();
+    private final Map<UUID, User> users = new HashMap<>();
 
     @Override
     public void save(User user) {
@@ -19,7 +20,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> findById(int id) {
+    public Optional<User> findById(UUID id) {
         return Optional.ofNullable(users.get(id));
     }
 

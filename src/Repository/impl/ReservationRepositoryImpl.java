@@ -15,8 +15,8 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public Optional<Reservation> findById(int id) {
-        return reservations.values().stream().filter(reservation -> reservation.getIdRes().equals(id)).findFirst();
+    public Optional<Reservation> findById(UUID id) {
+        return Optional.ofNullable(reservations.get(id));
     }
 
     @Override
@@ -25,13 +25,13 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public List<Reservation> findByUserId(int userId) {
-        return reservations.values().stream().filter(reservation -> reservation.getIdUser().equals(userId)).toList();
+    public List<Reservation> findByUserId(UUID userId) {
+        return reservations.values().stream().filter(reservation -> reservation.getIdUser().getIdU().equals(userId)).toList();
     }
 
     @Override
     public List<Reservation> findByRoomNumber(String roomNumber) {
-        return reservations.values().stream().filter(reservation -> reservation.getRoomNumber().equals(roomNumber)).toList();
+        return reservations.values().stream().filter(reservation -> reservation.getRoomNumber().getRoomNumber().equals(roomNumber)).toList();
     }
 
 

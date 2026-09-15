@@ -67,9 +67,18 @@ public class AuthServiceImpl implements AuthService {
 
         }
         else {
+            if (newname == null || newname.isBlank() || newemail == null || newemail.isBlank()
+                    || newphone == null || newphone.isBlank()) {
+                throw new IllegalArgumentException("Name, email and phone are required");
+            }
+            String email = newemail.trim();
+            if (userRepository.findByEmail(email)
+                    .filter(user -> !user.getIdU().equals(currentuser.getIdU())).isPresent()) {
+                throw new IllegalArgumentException("Email already used");
+            }
             currentuser.setName(newname);
             currentuser.setPhone(newphone);
-            currentuser.setEmail(newemail);
+            currentuser.setEmail(email);
             userRepository.save(currentuser);
         }
         return currentuser;
@@ -83,10 +92,13 @@ public class AuthServiceImpl implements AuthService {
 
         }
         else {
+            if (newpassword == null || newpassword.isBlank()) {
+                throw new IllegalArgumentException("Password cannot be empty");
+            }
             currentUser.setPassword(newpassword);
             userRepository.save(currentUser);
         }
-        return null;
+        return currentUser;
     }
 
 }

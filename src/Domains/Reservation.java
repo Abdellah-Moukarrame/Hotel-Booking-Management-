@@ -21,19 +21,17 @@ public class Reservation{
     protected LocalDateTime createdAt;
     public Reservation(User idUser, Room roomNumber, LocalDate checkIn, LocalDate checkOut, int numberOfGuests, long numberOfNights, BigDecimal totalPrice, ReservationStatus status, LocalDateTime createdAt){
         this.idRes = UUID.randomUUID();
-        this.idUser=idUser;
-        this.roomNumber=roomNumber;
-        this.checkIn=checkIn;
-        this.checkOut=checkOut;
-        this.numberOfGuests=numberOfGuests;
-        this.numberOfNights=numberOfNights ;
-        this.totalPrice=totalPrice;
+        this.Code = this.idRes.toString().substring(0, 8).toUpperCase();
+        this.idUser = idUser;
+        this.roomNumber = roomNumber;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.numberOfGuests = numberOfGuests;
+        this.numberOfNights = numberOfNights;
+        this.totalPrice = totalPrice;
         this.status = status;
-        this.createdAt= createdAt;
+        this.createdAt = createdAt;
 
-    }
-
-    public Reservation(int idU, UUID idR, LocalDate checkIn, LocalDate checkOut) {
     }
 
     public UUID getIdRes() {

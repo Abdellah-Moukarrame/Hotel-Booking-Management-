@@ -1,14 +1,16 @@
 package Domains;
 
+import java.util.UUID;
+
 public class User{
-    protected int idU = 0 ;
+    protected UUID idU ;
     protected String name ;
     protected String email ;
     protected String password ;
     protected String phone ;
 
     public User(String name, String email, String phone, String password) {
-        this.idU = idU++;
+        this.idU = UUID.randomUUID();
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -19,7 +21,7 @@ public class User{
         return this.email;
     }
 
-    public int getIdU() {
+    public UUID getIdU() {
         return this.idU;
     }
 
@@ -39,7 +41,7 @@ public class User{
         this.email = email;
     }
 
-    public void setIdU(int idU) {
+    public void setIdU(UUID idU) {
         this.idU = idU;
     }
 
